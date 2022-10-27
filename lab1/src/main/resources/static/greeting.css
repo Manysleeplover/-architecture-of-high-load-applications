@@ -1,0 +1,39 @@
+h1 {
+  color: #FF1493;
+  font-family: "Open Sans";
+  text-align: center;
+}
+
+a{
+    color: #FF1493;
+      font-family: "Open Sans";
+      margin-left: auto;
+          margin-right: auto;
+}
+
+p {
+    text-align: center;
+    font-family: "Open Sans";
+    width: 100%;
+    color: #DC143C;
+    font-weight: bolder;
+}
+
+.marquee-text {
+    margin: 30px auto;
+    border: 1px solid #000;
+    max-width: 60%;
+    overflow: hidden;
+}
+
+.marquee-text div {
+    width: 100%;
+    animation: marquee-text 5s linear infinite;
+}
+@keyframes marquee-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }

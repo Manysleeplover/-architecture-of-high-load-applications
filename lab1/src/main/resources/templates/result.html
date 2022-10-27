@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Приветствие</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/greeting.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Результат:</h1>
+<h1 th:text="'Йо, ' + ${greeting.name}" />
+<p><a href="/greeting">Ввести другое имя</a></p>
+
+<div class="marquee-text">
+    <div>
+
+        <h1 th:text="'Йо, ' + ${greeting.name}" ></h1>
+    </div>
+</div>
+</body>
+</html>

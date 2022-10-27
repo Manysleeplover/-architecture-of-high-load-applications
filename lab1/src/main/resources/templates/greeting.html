@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Приветствие</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/greeting.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Непосредственно форма</h1>
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <p>Введите имя: <input type="text" th:field="*{name}" /></p>
+    <p><input type="submit" value="Отправить" /> <input type="reset" value="Обновить" /></p>
+</form>
+
+<div class="marquee-text">
+    <div>
+        <h1>Введите имя</h1>
+    </div>
+</div>
+</body>
+</html>
