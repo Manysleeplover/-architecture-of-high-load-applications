@@ -2,6 +2,10 @@
 Лабораторная работа №1, Вариант 2.
 Для запуска: mvn clean install, далее в директории проекта:
 java -jar target/lab1 *tab*
+
+переходим на localhost:8080/greeting
+
+
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
 
