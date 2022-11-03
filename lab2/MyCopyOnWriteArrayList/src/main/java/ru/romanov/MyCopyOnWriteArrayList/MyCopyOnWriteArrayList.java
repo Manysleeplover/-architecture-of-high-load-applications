@@ -27,9 +27,7 @@ public class MyCopyOnWriteArrayList<T> {
      */
     public void add(T object) {
         synchronized (this.lock) {
-            List<T> cloneList = getList();
-            cloneList.add(object);
-            this.innerArrayList = cloneList;
+            this.innerArrayList.add(object);
         }
     }
 
@@ -41,33 +39,25 @@ public class MyCopyOnWriteArrayList<T> {
      */
     public void add(int index, T object) {
         synchronized (this.lock) {
-            List<T> cloneList = getList();
-            cloneList.add(index, object);
-            this.innerArrayList = cloneList;
+            this.innerArrayList.add(index, object);
         }
     }
 
     public T remove(int index) {
         synchronized (this.lock) {
-            List<T> cloneList = getList();
-            this.innerArrayList = cloneList;
-            return cloneList.remove(index);
+            return this.innerArrayList.remove(index);
         }
     }
 
     public boolean remove(T object) {
         synchronized (this.lock) {
-            List<T> cloneList = getList();
-            this.innerArrayList = cloneList;
-            return cloneList.remove(object);
+            return this.innerArrayList.remove(object);
         }
     }
 
     public long size() {
-        synchronized (this.lock) {
-            List<T> cloneList = getList();
-            return cloneList.size();
-        }
+        List<T> cloneList = getList();
+        return cloneList.size();
     }
 
     /**
@@ -90,11 +80,9 @@ public class MyCopyOnWriteArrayList<T> {
 
     @Override
     public String toString() {
-        synchronized (lock) {
-            List<T> cloneList = getList();
-            return "MyCopyOnWriteArrayList{" +
-                    "innerArrayList=" + cloneList +
-                    '}';
-        }
+        List<T> cloneList = getList();
+        return "MyCopyOnWriteArrayList{" +
+                "innerArrayList=" + cloneList +
+                '}';
     }
 }
