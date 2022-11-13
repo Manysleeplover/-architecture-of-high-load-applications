@@ -51,13 +51,13 @@ public class TestsView extends VerticalLayout {
                         mapToLong(QuestionItemComponent::getPontForTheAnswer).sum();
                 if (score == 0) {
                     dialog.add(new Paragraph("Кажется, когда вы родились - что-то пошло не так"));
-                } else if (score > 0 && score < 4) {
+                } else if (score == 1) {
                     dialog.add(new Paragraph("Поздравляем, вы чего-то добились в жизни"));
-                } else if (score >= 4 && score < 7) {
-                    dialog.add(new Paragraph("Неплохо, продолжай в том же духе"));
-                } else if (score >= 7 && score < 9) {
-                    dialog.add(new Paragraph("Ништяк, у тебя почти получилось"));
-                } else if (score == 10) {
+                } else if (score <=2) {
+                    dialog.add(new Paragraph("Неплохо, продолжайте в том же духе"));
+                } else if (score >= 4 && score <= 5) {
+                    dialog.add(new Paragraph("Круто, у вас почти получилось"));
+                } else if (score == 6) {
                     dialog.add(new Paragraph("Вы - настоящий пельмень"));
                 }
                 dialog.add(new Paragraph("Ваш балл: " + score));
