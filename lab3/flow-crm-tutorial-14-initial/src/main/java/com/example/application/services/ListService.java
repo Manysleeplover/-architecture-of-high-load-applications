@@ -6,19 +6,19 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.application.utils.JsonUtils.getJson;
 
 /**
  * Сервис для получения данных о пользователе
  */
 @Service
 public class ListService {
+
+    private final String usersFile = "src/main/resources/users.json";
 
     public ListService() {
     }
@@ -28,7 +28,7 @@ public class ListService {
      * @return - список пользователей
      */
     public List<User> getListWithUsers() {
-        String json = getJson();
+        String json = getJson(usersFile);
 
         List<User> users = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class ListService {
      * @return - получилось ли выполнить операцию
      */
     public boolean changeParams(User user, String isBl, String resrtPswrd) {
-        String json = getJson();
+        String json = getJson(usersFile);
 
         JSONObject mainObject = new JSONObject(json);
         JSONArray jsonArray = mainObject.getJSONArray("users");
@@ -64,7 +64,7 @@ public class ListService {
                 jsonArray.getJSONObject(i).put("isBlocked", Boolean.valueOf(isBl));
                 jsonArray.getJSONObject(i).put("passwordRestriction", Boolean.valueOf(resrtPswrd));
 
-                try (PrintWriter out = new PrintWriter(new FileWriter("src/main/resources/users.json"))) {
+                try (PrintWriter out = new PrintWriter(new FileWriter(usersFile))) {
                     out.write(mainObject.toString(4));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -81,13 +81,13 @@ public class ListService {
      * @return
      */
     public boolean addUser(String username) {
-        String json = getJson();
+        String json = getJson(usersFile);
 
         JSONObject mainObject = new JSONObject(json);
         JSONArray jsonArray = mainObject.getJSONArray("users");
         jsonArray.put(new JSONObject(new User(username)));
 
-        try (PrintWriter out = new PrintWriter(new FileWriter("src/main/resources/users.json"))) {
+        try (PrintWriter out = new PrintWriter(new FileWriter(usersFile))) {
             out.write(mainObject.toString(4));
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,7 +102,7 @@ public class ListService {
      * @return
      */
     public Boolean isDetected(String username) {
-        String json = getJson();
+        String json = getJson(usersFile);
 
         JSONObject mainObject = new JSONObject(json);
         JSONArray jsonArray = mainObject.getJSONArray("users");
@@ -112,25 +112,5 @@ public class ListService {
             }
         }
         return false;
-    }
-
-
-    /**
-     * Метод получения json из файла
-     * @return - строку с json
-     */
-    private String getJson() {
-        String json = null;
-        try {
-            json = String.join(" ",
-                    Files.readAllLines(
-                            Paths.get("src/main/resources/users.json"),
-                            StandardCharsets.UTF_8)
-            );
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return json;
     }
 }
