@@ -21,7 +21,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void createHeader() {
-        H1 logo = new H1("СмениПароль");
+        H1 logo = new H1("ПройдиТест");
         logo.addClassNames("text-l", "m-m");
 
         HorizontalLayout header = new HorizontalLayout(

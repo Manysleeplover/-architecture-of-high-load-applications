@@ -1,16 +1,16 @@
 package ru.romanov.tests.services;
 
+import org.springframework.stereotype.Service;
 import ru.romanov.tests.dto.Question;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static ru.romanov.tests.utils.JsonUtils.getJson;
 
-@Component
+@Service
 public class TestService {
 
     /**
