@@ -18,12 +18,12 @@ import java.util.List;
 @Route(value = "/test", layout = UserLayout.class)
 public class TestsView extends VerticalLayout {
 
-    private TestService testService;
-    private Button validateButton = new Button();
+    private final TestService testService;
+    private final Button validateButton = new Button();
 
     private Long score = 0L;
 
-    private List<QuestionItemComponent> questionItemComponents = new ArrayList<>();
+    private final List<QuestionItemComponent> questionItemComponents = new ArrayList<>();
 
     public TestsView(@Autowired TestService testService) {
         this.testService = testService;
@@ -62,9 +62,7 @@ public class TestsView extends VerticalLayout {
                 }
                 dialog.add(new Paragraph("Ваш балл: " + score));
                 Button reloadButton = new Button("Попробовать ещё");
-                reloadButton.addClickListener(x ->{
-                   getUI().get().getPage().reload();
-                });
+                reloadButton.addClickListener(x -> getUI().get().getPage().reload());
                 dialog.add(reloadButton);
                 dialog.open();
             } else {

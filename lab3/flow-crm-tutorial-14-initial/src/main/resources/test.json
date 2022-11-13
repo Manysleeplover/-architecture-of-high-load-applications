@@ -1,27 +1,61 @@
 {
   "questions": [
     {
-      "question": "Какой-то вопрос",
+      "question": "Какой это пельмень?",
       "answer_options": [
-        "Первый",
-        "Второй",
-        "Третий",
-        "Четвёртый"
+        "Манта",
+        "Хинкаля",
+        "Вареник",
+        "Пельмень"
       ],
-      "correct_answer": "Третий",
+      "correct_answer": "Манта",
+      "image_path": "images/test1q1.png",
       "weight": 1
     },
     {
-      "question": "Какой-то вопрос",
+      "question": "Какого уровня данный драугр?",
       "answer_options": [
-        "Первый",
-        "Второй",
-        "Третий",
-        "Четвёртый"
+        "Драугр",
+        "Драугр-палач",
+        "Драугр-военачальник",
+        "Некулюжий драугр"
       ],
-      "correct_answer": "Третий",
+      "correct_answer": "Драугр-военачальник",
+      "image_path": "images/test1q2.png",
+      "weight": 1
+    },
+    {
+      "question": "Выкупаете ли вы референсы к классическим мемам времён Скайрима?",
+      "answer_options": [
+        "Да",
+        "Нет"
+      ],
+      "correct_answer": "Да",
+      "image_path": "images/test1q3.png",
+      "weight": 1
+    },
+    {
+      "question": "Хотите ли вы выпить после проверки этой лабы?",
+      "answer_options": [
+        "Да",
+        "Нет",
+        "24",
+        "Пишу докладную"
+      ],
+      "correct_answer": "Пишу докладную",
+      "image_path": "images/test1q4.png",
+      "weight": 1
+    },
+    {
+      "question": "Узнали? Согласны?",
+      "answer_options": [
+        "Узнал",
+        "Согласен",
+        "Узнал и согласен"
+      ],
+      "correct_answer": "Узнал и согласен",
+      "image_path": "images/test1q5.png",
       "weight": 1
     }
-
   ]
 }

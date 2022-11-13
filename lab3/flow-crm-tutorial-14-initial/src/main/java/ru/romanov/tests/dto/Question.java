@@ -14,4 +14,5 @@ public class Question {
     private List<String> answerOptions;
     private String correctAnswer;
     private Long weight;
+    private String imagePath;
 }

@@ -1,7 +1,6 @@
 package ru.romanov.tests.services;
 
 import ru.romanov.tests.dto.Question;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,6 @@ public class TestService {
 
         JSONObject mainJson = new JSONObject(getJson("src/main/resources/test.json"));
         JSONArray jsonArray = mainJson.getJSONArray("questions");
-        ObjectMapper mapper = new ObjectMapper();
 
         //Пробегамеся по массиву вопросов и сетим в POJO данные из json
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -35,6 +33,7 @@ public class TestService {
             question.setQuestion(jsonQuestObject.getString("question"));
             question.setCorrectAnswer(jsonQuestObject.getString("correct_answer"));
             question.setWeight(jsonQuestObject.getLong("weight"));
+            question.setImagePath(jsonQuestObject.getString("image_path"));
 
             //Пробегаемся по вложенному массиву и сетим в pojo варианты ответов
             List<String> answerOptions = new ArrayList<>();
