@@ -1,6 +1,7 @@
 package com.example.application.services;
 
 import com.example.application.entities.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,13 @@ import java.util.Map;
 @Service
 public class LoginService {
 
-    public String isDetected(String username, String password) {
+    /**
+     * Возращает роль пользователя
+     * @param username - имя пользователя
+     * @param password - пароль пользователя
+     * @return - роль пользователя
+     */
+    public String getUserRole(String username, String password) {
         String json = getJson();
 
         JSONObject mainObject = new JSONObject(json);
@@ -34,7 +41,14 @@ public class LoginService {
         return "none";
     }
 
-    public boolean changeAdminPassword(String username, String oldPassword, String newPassword) {
+    /**
+     * Смена пароля
+     * @param username - имя пользователя
+     * @param oldPassword - старый пароль
+     * @param newPassword - новый пароль
+     * @return - получилось ли выполнить операцию
+     */
+    public boolean changePassword(String username, String oldPassword, String newPassword) {
         String json = getJson();
 
         JSONObject mainObject = new JSONObject(json);
@@ -54,6 +68,12 @@ public class LoginService {
         return false;
     }
 
+    /**
+     * Получаение пользователя по паролю и логину
+     * @param username
+     * @param password
+     * @return
+     */
     public User getUser(String username, String password) {
         String json = getJson();
         User user = new User();
@@ -72,6 +92,35 @@ public class LoginService {
         return user;
     }
 
+    /**
+     * Получение пользователя по логину
+     * @param username
+     * @return
+     */
+    public User getUser(String username) {
+        String json = getJson();
+        User user = new User();
+        JSONObject mainObject = new JSONObject(json);
+        JSONArray jsonArray = mainObject.getJSONArray("users");
+        ObjectMapper objectMapper = new ObjectMapper();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.getJSONObject(i).get("username").equals(username)) {
+                user.setRole(jsonArray.getJSONObject(i).get("role").toString());
+                user.setPassword(jsonArray.getJSONObject(i).get("password").toString());
+                user.setIsBlocked((Boolean) jsonArray.getJSONObject(i).get("isBlocked"));
+                user.setPasswordRestriction(Boolean.valueOf(jsonArray.getJSONObject(i).get("passwordRestriction").toString()));
+                user.setUsername(jsonArray.getJSONObject(i).get("username").toString());
+            }
+        }
+        return user;
+    }
+
+
+    /**
+     * Метод валидации пароля, определяет, есть ли повторяющиеся символы в строке
+     * @param password - пароль
+     * @return
+     */
     public boolean validateUserPassword(String password) {
         password = password.toLowerCase();
 
@@ -90,11 +139,14 @@ public class LoginService {
                 return false;
             }
         }
-
         return true;
     }
 
 
+    /**
+     * Получаем json
+     * @return
+     */
     private String getJson() {
         String json = null;
         try {
