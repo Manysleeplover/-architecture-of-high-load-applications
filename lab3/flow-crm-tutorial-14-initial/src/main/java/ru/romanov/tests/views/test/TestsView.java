@@ -5,7 +5,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Paragraph;
 import ru.romanov.tests.dto.Question;
 import ru.romanov.tests.services.TestService;
-import ru.romanov.tests.views.user.UserLayout;
+import ru.romanov.tests.views.user.MainLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @PageTitle("Прохождение тестов")
-@Route(value = "/test", layout = UserLayout.class)
+@Route(value = "/", layout = MainLayout.class)
 public class TestsView extends VerticalLayout {
 
     private final TestService testService;
