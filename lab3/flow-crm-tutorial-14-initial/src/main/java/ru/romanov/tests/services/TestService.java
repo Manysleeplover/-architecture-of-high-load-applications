@@ -1,6 +1,6 @@
 package ru.romanov.tests.services;
 
-import ru.romanov.tests.bean.Question;
+import ru.romanov.tests.dto.Question;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;

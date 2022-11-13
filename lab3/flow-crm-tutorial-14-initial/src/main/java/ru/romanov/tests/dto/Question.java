@@ -1,4 +1,4 @@
-package ru.romanov.tests.bean;
+package ru.romanov.tests.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

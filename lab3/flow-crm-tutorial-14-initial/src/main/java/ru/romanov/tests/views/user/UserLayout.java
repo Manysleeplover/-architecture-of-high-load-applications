@@ -15,6 +15,7 @@ import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.Theme;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import ru.romanov.tests.views.test.TestsView;
 
 import javax.servlet.ServletException;
 
@@ -43,6 +44,7 @@ public class UserLayout extends AppLayout {
             try {
                 (((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()).logout();
                 UserSessionInfo.getInstance().cleanCurrentUser();
+                getUI().get().getSession().close();
                 getUI().get().navigate(LoginPage.class);
             } catch (ServletException ex) {
                 throw new RuntimeException(ex);
@@ -57,10 +59,11 @@ public class UserLayout extends AppLayout {
 
     private void createDrawer() {
         RouterLink changePasswordLink = new RouterLink("Смена пароля", UserView.class);
+        RouterLink testLink = new RouterLink("Тесты", TestsView.class);
         changePasswordLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
-                changePasswordLink
+                testLink, changePasswordLink
         ));
     }
 }
