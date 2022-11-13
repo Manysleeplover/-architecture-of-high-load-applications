@@ -1,4 +1,4 @@
-package ru.romanov.tests.views.test;
+package ru.romanov.tests.views.test.components;
 
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;

@@ -5,11 +5,12 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Paragraph;
 import ru.romanov.tests.dto.Question;
 import ru.romanov.tests.services.TestService;
-import ru.romanov.tests.views.user.MainLayout;
+import ru.romanov.tests.views.MainLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
+import ru.romanov.tests.views.test.components.QuestionItemComponent;
 
 import java.util.ArrayList;
 import java.util.List;

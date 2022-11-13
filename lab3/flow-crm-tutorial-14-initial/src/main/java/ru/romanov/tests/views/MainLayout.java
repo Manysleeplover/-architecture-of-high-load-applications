@@ -1,4 +1,4 @@
-package ru.romanov.tests.views.user;
+package ru.romanov.tests.views;
 
 
 import com.vaadin.flow.component.applayout.AppLayout;
