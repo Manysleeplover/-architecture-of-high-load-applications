@@ -1,6 +1,6 @@
-package com.example.application.services;
+package ru.romanov.tests.services;
 
-import com.example.application.entities.User;
+import ru.romanov.tests.entities.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.application.utils.JsonUtils.getJson;
+import static ru.romanov.tests.utils.JsonUtils.getJson;
 
 /**
  * Сервис для получения данных о пользователе

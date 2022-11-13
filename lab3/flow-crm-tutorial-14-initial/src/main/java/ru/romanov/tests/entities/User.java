@@ -1,4 +1,4 @@
-package com.example.application.entities;
+package ru.romanov.tests.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

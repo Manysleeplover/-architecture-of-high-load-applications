@@ -1,4 +1,4 @@
-package com.example.application.utils;
+package ru.romanov.tests.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;

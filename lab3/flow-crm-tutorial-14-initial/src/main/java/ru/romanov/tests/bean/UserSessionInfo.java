@@ -1,6 +1,6 @@
-package com.example.application.bean;
+package ru.romanov.tests.bean;
 
-import com.example.application.entities.User;
+import ru.romanov.tests.entities.User;
 import org.springframework.context.annotation.Bean;
 
 

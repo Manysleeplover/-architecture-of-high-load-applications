@@ -1,7 +1,7 @@
-package com.example.application.views.test;
+package ru.romanov.tests.views.test;
 
-import com.example.application.services.TestService;
-import com.example.application.views.user.UserLayout;
+import ru.romanov.tests.services.TestService;
+import ru.romanov.tests.views.user.UserLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;

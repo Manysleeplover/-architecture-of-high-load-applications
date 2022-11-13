@@ -1,9 +1,9 @@
-package com.example.application.views.admin;
+package ru.romanov.tests.views.admin;
 
 
-import com.example.application.bean.UserSessionInfo;
-import com.example.application.services.LoginService;
-import com.example.application.views.LoginPage;
+import ru.romanov.tests.bean.UserSessionInfo;
+import ru.romanov.tests.services.LoginService;
+import ru.romanov.tests.views.LoginPage;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;

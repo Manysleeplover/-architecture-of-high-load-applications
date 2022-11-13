@@ -1,6 +1,6 @@
-package com.example.application.services;
+package ru.romanov.tests.services;
 
-import com.example.application.bean.Question;
+import ru.romanov.tests.bean.Question;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.application.utils.JsonUtils.getJson;
+import static ru.romanov.tests.utils.JsonUtils.getJson;
 
 @Component
 public class TestService {

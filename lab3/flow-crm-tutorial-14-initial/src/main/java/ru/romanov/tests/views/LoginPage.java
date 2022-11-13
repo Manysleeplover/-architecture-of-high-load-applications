@@ -1,11 +1,11 @@
-package com.example.application.views;
+package ru.romanov.tests.views;
 
-import com.example.application.bean.UserSessionInfo;
-import com.example.application.entities.User;
-import com.example.application.services.ListService;
-import com.example.application.services.LoginService;
-import com.example.application.views.admin.AdminView;
-import com.example.application.views.user.UserView;
+import ru.romanov.tests.bean.UserSessionInfo;
+import ru.romanov.tests.entities.User;
+import ru.romanov.tests.services.ListService;
+import ru.romanov.tests.services.LoginService;
+import ru.romanov.tests.views.admin.AdminView;
+import ru.romanov.tests.views.user.UserView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;

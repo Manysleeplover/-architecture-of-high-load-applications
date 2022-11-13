@@ -1,4 +1,4 @@
-package com.example.application.views.admin.components;
+package ru.romanov.tests.views.admin.components;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;

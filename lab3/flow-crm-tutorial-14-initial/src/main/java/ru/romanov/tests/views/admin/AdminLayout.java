@@ -1,8 +1,8 @@
-package com.example.application.views.user;
+package ru.romanov.tests.views.admin;
 
 
-import com.example.application.bean.UserSessionInfo;
-import com.example.application.views.LoginPage;
+import ru.romanov.tests.bean.UserSessionInfo;
+import ru.romanov.tests.views.LoginPage;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -19,9 +19,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.ServletException;
 
 @Theme(themeFolder = "flowcrmtutorial")
-public class UserLayout extends AppLayout {
+public class AdminLayout extends AppLayout {
 
-    public UserLayout() {
+    public AdminLayout() {
         createHeader();
         createDrawer();
     }
@@ -56,11 +56,13 @@ public class UserLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        RouterLink changePasswordLink = new RouterLink("Смена пароля", UserView.class);
+        RouterLink adminLink = new RouterLink("Страница Админа", AdminView.class);
+        RouterLink changePasswordLink = new RouterLink("Смена пароля", AdminChangePassword.class);
+        adminLink.setHighlightCondition(HighlightConditions.sameLocation());
         changePasswordLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
-                changePasswordLink
+                adminLink, changePasswordLink
         ));
     }
 }

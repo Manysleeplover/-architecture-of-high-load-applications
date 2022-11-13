@@ -1,6 +1,6 @@
-package com.example.application.services;
+package ru.romanov.tests.services;
 
-import com.example.application.entities.User;
+import ru.romanov.tests.entities.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
