@@ -7,5 +7,6 @@
 
 Инструкция по запуску проекта:
 
-mvn clean install -Pproduction
-Затем в директории проекта java -jar target/*.jar
+$ mvn clean install -Pproduction \
+Затем в директории проекта\
+$ java -jar target/*.jar
