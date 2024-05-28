@@ -18,11 +18,11 @@ public class TestService {
      *
      * @return - лист с вопросами
      */
-    public List<Question> getQuestionList() {
+    public List<Question> getQuestionList(String pathToJson) {
 
         List<Question> questions = new ArrayList<>();
 
-        JSONObject mainJson = new JSONObject(getJson("src/main/resources/test.json"));
+        JSONObject mainJson = new JSONObject(getJson(pathToJson));
         JSONArray jsonArray = mainJson.getJSONArray("questions");
 
         //Пробегамеся по массиву вопросов и сетим в POJO данные из json

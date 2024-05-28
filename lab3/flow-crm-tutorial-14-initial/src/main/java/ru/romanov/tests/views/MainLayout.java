@@ -13,8 +13,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.Theme;
-import ru.romanov.tests.views.lecture.LectureView;
-import ru.romanov.tests.views.lecture.lectures.Lecture1;
+import ru.romanov.tests.views.lectures.Lecture1;
+import ru.romanov.tests.views.seminars.Seminar1;
 import ru.romanov.tests.views.test.TestsView;
 
 
@@ -55,16 +55,25 @@ public class MainLayout extends AppLayout {
 
         Accordion lectureAccordion = new Accordion();
         VerticalLayout lectureLayout = new VerticalLayout();
-
-
         lectureLayout.add(new RouterLink("Лекция 1", Lecture1.class ));
         AccordionPanel lectureAccordionPanel = lectureAccordion.add("Лекции", lectureLayout);
         lectureAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.REVERSE);
         mathLayout.add(lectureAccordionPanel);
 
+        Accordion seminarAccordion = new Accordion();
+        VerticalLayout seminarLayout = new VerticalLayout();
+        seminarLayout.add(new RouterLink("Семинар 1", Seminar1.class));
+        AccordionPanel seminarAccordionPanel = seminarAccordion.add("Семинары", seminarLayout);
+        seminarAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.REVERSE);
+        mathLayout.add(seminarAccordionPanel);
 
-        mathLayout.add(new RouterLink("Семинары", TestsView.class));
-        mathLayout.add(new RouterLink("Тесты", TestsView.class));
+        Accordion testAccordion = new Accordion();
+        VerticalLayout testLayout = new VerticalLayout();
+        testLayout.add(new RouterLink("Тест 1", TestsView.class));
+        AccordionPanel testAccordionPanel = testAccordion.add("Тесты", testLayout);
+        testAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.REVERSE);
+        mathLayout.add(testAccordionPanel);
+
         AccordionPanel lessonsAccordionPanel = menuAccordion.add("Математика", mathLayout);
         lessonsAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.FILLED);
 

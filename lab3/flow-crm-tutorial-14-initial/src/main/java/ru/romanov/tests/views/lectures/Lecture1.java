@@ -1,6 +1,5 @@
-package ru.romanov.tests.views.lecture.lectures;
+package ru.romanov.tests.views.lectures;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -8,7 +7,7 @@ import com.vaadin.flow.router.Route;
 import ru.romanov.tests.views.MainLayout;
 
 @PageTitle("Лекция №1 - Прямоугольный треугольник")
-@Route(value = "/lecture1", layout = MainLayout.class)
+@Route(value = "/math-lecture-1", layout = MainLayout.class)
 public class Lecture1 extends VerticalLayout {
     public Lecture1() {
         add(new H1("Лекция №1 - Прямоугольный треугольник"));

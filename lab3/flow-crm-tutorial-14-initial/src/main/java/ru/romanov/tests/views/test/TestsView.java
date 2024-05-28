@@ -34,7 +34,7 @@ public class TestsView extends VerticalLayout {
 
     public VerticalLayout addQuestionItem() {
         VerticalLayout verticalLayout = new VerticalLayout();
-        List<Question> questions = testService.getQuestionList();
+        List<Question> questions = testService.getQuestionList("src/main/resources/math/test.json");
         for (int i = 0; i < questions.size(); i++) {
             QuestionItemComponent questionItemComponent = new QuestionItemComponent(questions.get(i), i + 1);
             questionItemComponents.add(questionItemComponent);
@@ -51,15 +51,15 @@ public class TestsView extends VerticalLayout {
                 score = questionItemComponents.stream().filter(QuestionItemComponent::isCorrectAnswer).
                         mapToLong(QuestionItemComponent::getPontForTheAnswer).sum();
                 if (score == 0) {
-                    dialog.add(new Paragraph("Кажется, когда вы родились - что-то пошло не так"));
+                    dialog.add(new Paragraph("Ваша оценка - 2"));
                 } else if (score == 1) {
-                    dialog.add(new Paragraph("Поздравляем, вы чего-то добились в жизни"));
+                    dialog.add(new Paragraph("Ваша оценка - 2"));
                 } else if (score <=2) {
-                    dialog.add(new Paragraph("Неплохо, продолжайте в том же духе"));
+                    dialog.add(new Paragraph("Ваша оценка - 3"));
                 } else if (score >= 4 && score <= 5) {
-                    dialog.add(new Paragraph("Круто, у вас почти получилось"));
+                    dialog.add(new Paragraph("Ваша оценка - 4"));
                 } else if (score == 6) {
-                    dialog.add(new Paragraph("Вы - настоящий пельмень"));
+                    dialog.add(new Paragraph("Ваша оценка - 5"));
                 }
                 dialog.add(new Paragraph("Ваш балл: " + score));
                 Button reloadButton = new Button("Попробовать ещё");
