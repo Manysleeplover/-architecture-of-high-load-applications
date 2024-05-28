@@ -1,4 +1,4 @@
-package ru.romanov.tests.views.test;
+package ru.romanov.tests.views.lecture;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @PageTitle("Прохождение тестов")
-@Route(value = "/test", layout = MainLayout.class)
-public class TestsView extends VerticalLayout {
+@Route(value = "/lecture", layout = MainLayout.class)
+public class LectureView extends VerticalLayout {
 
     private final TestService testService;
     private final Button validateButton = new Button();
@@ -26,7 +26,7 @@ public class TestsView extends VerticalLayout {
 
     private final List<QuestionItemComponent> questionItemComponents = new ArrayList<>();
 
-    public TestsView(@Autowired TestService testService) {
+    public LectureView(@Autowired TestService testService) {
         this.testService = testService;
         configureValidateButton();
         add(addQuestionItem(), validateButton);
@@ -54,7 +54,7 @@ public class TestsView extends VerticalLayout {
                     dialog.add(new Paragraph("Кажется, когда вы родились - что-то пошло не так"));
                 } else if (score == 1) {
                     dialog.add(new Paragraph("Поздравляем, вы чего-то добились в жизни"));
-                } else if (score <=2) {
+                } else if (score <= 2) {
                     dialog.add(new Paragraph("Неплохо, продолжайте в том же духе"));
                 } else if (score >= 4 && score <= 5) {
                     dialog.add(new Paragraph("Круто, у вас почти получилось"));
