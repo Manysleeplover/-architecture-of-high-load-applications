@@ -13,18 +13,17 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.Theme;
-import ru.romanov.tests.security.SecurityService;
 import ru.romanov.tests.views.lecture.LectureView;
+import ru.romanov.tests.views.lecture.lectures.Lecture1;
 import ru.romanov.tests.views.test.TestsView;
 
 
 @Theme(themeFolder = "flowcrmtutorial")
 public class MainLayout extends AppLayout {
 
-    private final SecurityService securityService;
 
-    public MainLayout(SecurityService securityService) {
-        this.securityService = securityService;
+
+    public MainLayout() {
         createHeader();
         createDrawer();
     }
@@ -33,7 +32,7 @@ public class MainLayout extends AppLayout {
         H1 logo = new H1("Образовательная платформа StankinSmart");
         logo.addClassNames("text-l", "m-m");
 
-        Button logout = new Button("Log out", e -> securityService.logout());
+        Button logout = new Button("Log out");
 
         HorizontalLayout header = new HorizontalLayout(
                 new DrawerToggle(),
@@ -53,14 +52,26 @@ public class MainLayout extends AppLayout {
     private void createDrawer() {
         Accordion menuAccordion = new Accordion();
         VerticalLayout mathLayout = new VerticalLayout();
-        mathLayout.add(new RouterLink("Лекции", LectureView.class));
+
+        Accordion lectureAccordion = new Accordion();
+        VerticalLayout lectureLayout = new VerticalLayout();
+
+
+        lectureLayout.add(new RouterLink("Лекция 1", Lecture1.class ));
+        AccordionPanel lectureAccordionPanel = lectureAccordion.add("Лекции", lectureLayout);
+        lectureAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.REVERSE);
+        mathLayout.add(lectureAccordionPanel);
+
+
         mathLayout.add(new RouterLink("Семинары", TestsView.class));
         mathLayout.add(new RouterLink("Тесты", TestsView.class));
-        AccordionPanel lectureAccordionPanel = menuAccordion.add("Математика", mathLayout);
-        lectureAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.FILLED);
+        AccordionPanel lessonsAccordionPanel = menuAccordion.add("Математика", mathLayout);
+        lessonsAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.FILLED);
+
+
 
         addToDrawer(new VerticalLayout(
-                lectureAccordionPanel
+                lessonsAccordionPanel
         ));
     }
 }

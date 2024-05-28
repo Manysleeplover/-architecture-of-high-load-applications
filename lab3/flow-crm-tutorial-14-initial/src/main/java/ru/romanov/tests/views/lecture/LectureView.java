@@ -15,7 +15,7 @@ import ru.romanov.tests.views.test.components.QuestionItemComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-@PageTitle("Прохождение тестов")
+@PageTitle("Лекции")
 @Route(value = "/lecture", layout = MainLayout.class)
 public class LectureView extends VerticalLayout {
 
