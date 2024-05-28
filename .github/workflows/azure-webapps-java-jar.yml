@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '/home/runner/work/-architecture-of-high-load-applications/target/*.jar'
+          path: ' /home/runner/.m2/repository/com/example/application/flowcrmtutorial/1.0-SNAPSHOT/*.jar'
 
   deploy:
     permissions:
