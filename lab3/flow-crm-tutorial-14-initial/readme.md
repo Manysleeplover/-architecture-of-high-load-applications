@@ -8,3 +8,11 @@
 $ mvn clean install -Pproduction \
 Затем в директории проекта\
 $ java -jar target/*.jar
+
+деплой в yandex cloud
+```
+mvn clean package -Pproduction
+docker build . -t stankin-smart:latest
+docker run -p 8080:8080 stankin-smart:latest
+
+```

@@ -74,7 +74,7 @@ public class MainLayout extends AppLayout {
         testAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.REVERSE);
         mathLayout.add(testAccordionPanel);
 
-        AccordionPanel lessonsAccordionPanel = menuAccordion.add("Математика", mathLayout);
+        AccordionPanel lessonsAccordionPanel = menuAccordion.add("Геометрия", mathLayout);
         lessonsAccordionPanel.addThemeVariants(DetailsVariant.REVERSE, DetailsVariant.SMALL, DetailsVariant.FILLED);
 
 

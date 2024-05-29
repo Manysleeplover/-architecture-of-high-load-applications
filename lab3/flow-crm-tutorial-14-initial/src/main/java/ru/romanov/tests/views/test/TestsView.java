@@ -3,13 +3,13 @@ package ru.romanov.tests.views.test;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Paragraph;
-import ru.romanov.tests.dto.Question;
-import ru.romanov.tests.services.TestService;
-import ru.romanov.tests.views.MainLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
+import ru.romanov.tests.dto.Question;
+import ru.romanov.tests.services.TestService;
+import ru.romanov.tests.views.MainLayout;
 import ru.romanov.tests.views.test.components.QuestionItemComponent;
 
 import java.util.ArrayList;
@@ -34,7 +34,8 @@ public class TestsView extends VerticalLayout {
 
     public VerticalLayout addQuestionItem() {
         VerticalLayout verticalLayout = new VerticalLayout();
-        List<Question> questions = testService.getQuestionList("src/main/resources/math/test.json");
+        List<Question> questions = null;
+        questions = testService.getQuestionList();
         for (int i = 0; i < questions.size(); i++) {
             QuestionItemComponent questionItemComponent = new QuestionItemComponent(questions.get(i), i + 1);
             questionItemComponents.add(questionItemComponent);
@@ -51,17 +52,17 @@ public class TestsView extends VerticalLayout {
                 score = questionItemComponents.stream().filter(QuestionItemComponent::isCorrectAnswer).
                         mapToLong(QuestionItemComponent::getPontForTheAnswer).sum();
                 if (score == 0) {
-                    dialog.add(new Paragraph("Ваша оценка - 2"));
+                    dialog.add(new Paragraph("Ваша оценка - 2/5"));
                 } else if (score == 1) {
-                    dialog.add(new Paragraph("Ваша оценка - 2"));
-                } else if (score <=2) {
-                    dialog.add(new Paragraph("Ваша оценка - 3"));
+                    dialog.add(new Paragraph("Ваша оценка - 2/5"));
+                } else if (score <= 2) {
+                    dialog.add(new Paragraph("Ваша оценка - 3/5"));
                 } else if (score >= 4 && score <= 5) {
-                    dialog.add(new Paragraph("Ваша оценка - 4"));
+                    dialog.add(new Paragraph("Ваша оценка - 4/5"));
                 } else if (score == 6) {
-                    dialog.add(new Paragraph("Ваша оценка - 5"));
+                    dialog.add(new Paragraph("Ваша оценка - 5/5"));
                 }
-                dialog.add(new Paragraph("Ваш балл: " + score));
+                dialog.add(new Paragraph("Правильных ответов: " + score));
                 Button reloadButton = new Button("Попробовать ещё");
                 reloadButton.addClickListener(x -> getUI().get().getPage().reload());
                 dialog.add(reloadButton);

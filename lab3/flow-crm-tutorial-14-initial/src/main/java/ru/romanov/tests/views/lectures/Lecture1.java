@@ -11,7 +11,7 @@ import ru.romanov.tests.views.MainLayout;
 public class Lecture1 extends VerticalLayout {
     public Lecture1() {
         add(new H1("Лекция №1 - Прямоугольный треугольник"));
-        add(new Image("images/Lecture1.прямоугольный треугольник.png", "Прямоугольный треугольник"));
+        add(new Image("images/Lecture1_pryamoy_treug.png", "Прямоугольный треугольник"));
         add(new H2("Определение: "));
         add(new H4("Треугольник называют прямоугольным, если у него есть прямой угол.\n" +
                 "Прямоугольный треугольник имеет две взаимно перпендикулярные стороны, называемые катетами; третья его сторона называется гипотенузой.Угол ABC=90∘ , АC  - гипотенуза, AB  и ВC  - катеты.\n" +
@@ -30,8 +30,8 @@ public class Lecture1 extends VerticalLayout {
         add(trianglePropertiesList);
 
         add(new H2("Признаки равенства прямоугольных треугольников: "));
-        add(new Image("images/Признаки равенства 1.png", "Признаки равенства 1"));
-        add(new Image("images/Признаки равенства 2.png", "Признаки равенства 2"));
+        add(new Image("images/equals_1.PNG", "Признаки равенства 1"));
+        add(new Image("images/equals_2.PNG", "Признаки равенства 2"));
     }
 
 }

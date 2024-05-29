@@ -19,10 +19,10 @@ public class Seminar1 extends VerticalLayout {
         trianglePropertiesList.add(new ListItem("Формула Герона S = (p * (p-a) * (p-b) * (p-c))1/2"));
         add(trianglePropertiesList);
         add(new H2("Теорема пифагора"));
-        add(new Image("images/Семинар_1_теорема_пифагора.PNG", "Прямоугольный треугольник"));
+        add(new Image("images/sem_1_pif.PNG", "Прямоугольный треугольник"));
         add(new H4("что и требовалось доказать."));
         add(new H4("Приведенное доказательство имеет алгебраический характер: вычисление показывает, что сумма квадратов длин катетов равны квадрату длины гипотенузы.\n"));
-        add(new Image("images/Семинар_1_синус_косинус.PNG", "Прямоугольный треугольник"));
+        add(new Image("images/sem_sin_cos_1.PNG", "Прямоугольный треугольник"));
 
 
     }

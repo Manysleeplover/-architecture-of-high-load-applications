@@ -15,7 +15,6 @@ public class IntroductionView extends VerticalLayout {
 
 
     public IntroductionView(@Autowired TestService testService) {
-
         add(new H1("Добро пожаловать на образовательную платформу StankinSmart"));
         add(new H4("Выберите необходимый модуль в выпадающем меню слева"));
     }
